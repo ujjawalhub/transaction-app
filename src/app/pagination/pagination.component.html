@@ -1,0 +1,42 @@
+<div class="row flex-wrap bg-white custom-pagination px-2" style="font-size: 14px;">
+    <div class="col-7 col-sm-6 col-md-4 col-lg-4 d-flex align-items-center text-truncate">
+        <div class="profile-pic-small">
+            <a (click)="changePage('dec')" class="">&laquo;</a>
+        </div>
+        <div class="profile-pic-small">
+            <a (click)="changePageNo('dec')" class="">&#8249;</a>
+        </div>
+        <div><small>Page</small></div>
+        <div>
+            <input class="form-control" placeholder="" type="text" [(ngModel)]="pageNumber"
+                (keyup)="onPageChange()">
+        </div>
+        <div><small>of {{endPage}}</small></div>
+        <div class="profile-pic-small">
+            <a (click)="changePageNo('inc')" class="">&#8250;</a>
+        </div>
+        <div class="profile-pic-small">
+            <a (click)="changePage('inc')" class="">&raquo;</a>
+        </div>
+    </div>
+    <div class="col-5  col-sm-6 col-md-4 col-lg-4 d-flex align-items-center">
+        <div class="d-flex align-items-center">    
+                <select class="form-select w-auto" style="padding: 0.375rem 1.25rem 0.375rem 0.55rem;" [(ngModel)]="pageSize"
+                (change)="onPageSizeChange()">
+                <option value="2">2</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <div><small>items per page</small></div>
+    </div>
+    <div class="col-6  col-sm-4 col-md-4 col-lg-4 d-flex align-items-center ml-auto">
+        <div><small>{{((startingPageNumber-1)*pageSize)+1}} -
+            {{pageSize > 1 ? (pageSize*(startingPageNumber-1)+numberOfElements) > totalNumbers ? totalNumbers :
+            pageSize*(startingPageNumber-1)+numberOfElements : pageNumber}}
+                of {{totalNumbers}} items</small></div>
+        <div class="profile-pic-small">
+            <i class="fas fa-redo icon-small" (click)="refresh()"></i>
+        </div>
+    </div>
+</div>
