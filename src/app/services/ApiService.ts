@@ -19,7 +19,7 @@ export class APIService {
     getParentData(page:number, size:number): Promise<any> {
         let self = this;
         return new Promise<any>((resolve, reject) => {
-            let url = this.baseUrl + "parent/" + "?page=" + page + "&size=" + size;
+            let url = this.baseUrl + "parent/" + page + "/" + size;
             self.httpService.get(url).then((res: any) => {
                 resolve(res);
             }), (err: any) => {
@@ -31,7 +31,7 @@ export class APIService {
     getChildData(id:number): Promise<any> {
         let self = this;
         return new Promise<any>((resolve, reject) => {
-            let url = this.baseUrl + "parent/" + id;
+            let url = this.baseUrl + "parent/" + id + "/";
             self.httpService.get(url).then((res: any) => {
                 resolve(res);
             }), (err: any) => {

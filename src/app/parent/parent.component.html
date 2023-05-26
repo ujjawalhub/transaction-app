@@ -20,7 +20,7 @@
                             <td>{{parent.sender}}</td>
                             <td>{{parent.receiver}}</td>
                             <td>{{parent.totalAmount}}</td>
-                            <td><a class="text-blue" (click)="openChild(parent.id)">{{parent.totalPaidAmount}}</a></td>
+                            <td><a class="text-blue" (click)="openChild(parent.id)">{{parent.totalPaidAmount||'N/A'}}</a></td>
                         </tr>
                     </tbody>
                 </table>

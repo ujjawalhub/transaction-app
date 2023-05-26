@@ -51,7 +51,10 @@ export class ParentComponent {
   }
 
   openChild(parentId:number) {
-    this.data.setParentId(parentId);
-    this.router.navigate([parentId], {relativeTo: this.route})
+    const parent = this.parentList.find(x=> x.id == parentId);
+    if(parent && parent.totalPaidAmount) {
+      this.data.setParentId(parentId);
+      this.router.navigate([parentId], {relativeTo: this.route})
+    }
   }
 }
